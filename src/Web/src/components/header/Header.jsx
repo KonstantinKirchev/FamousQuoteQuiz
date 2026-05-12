@@ -11,6 +11,9 @@ const Header = () => {
           <NavLink to="/" className={({ isActive }) => isActive ? "nav-item active" : "nav-item"}>
             Quiz Game
           </NavLink>
+          <NavLink to="/settings" className={({ isActive }) => isActive ? "nav-item active" : "nav-item"}>
+            Settings
+          </NavLink>
           <NavLink to="/management/quotes" className={({ isActive }) => isActive ? "nav-item active" : "nav-item"}>
             Quote Management
           </NavLink>

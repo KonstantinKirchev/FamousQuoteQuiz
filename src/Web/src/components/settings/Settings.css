@@ -1,0 +1,88 @@
+.settings-container {
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+  min-height: 80vh;
+}
+
+.settings-card {
+  background: white;
+  width: 100%;
+  max-width: 500px;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border-top: 5px solid #ff007f; /* Vivid Pink from Wireframe */
+}
+
+.settings-title {
+  margin: 0 0 10px 0;
+  color: #333;
+  font-size: 1.5rem;
+}
+
+.settings-description {
+  color: #666;
+  font-size: 0.95rem;
+  margin-bottom: 30px;
+  line-height: 1.4;
+}
+
+.mode-options {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.mode-option {
+  display: flex;
+  align-items: flex-start;
+  padding: 15px;
+  border: 2px solid #eee;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.mode-option:hover {
+  border-color: #ff007f;
+  background-color: rgba(255, 0, 127, 0.02);
+}
+
+.mode-option.selected {
+  border-color: #ff007f;
+  background-color: rgba(255, 0, 127, 0.05);
+}
+
+.mode-option input[type="radio"] {
+  margin-top: 4px;
+  margin-right: 15px;
+  accent-color: #ff007f;
+  transform: scale(1.2);
+}
+
+.mode-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.mode-name {
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.mode-desc {
+  font-size: 0.85rem;
+  color: #777;
+}
+
+.settings-footer {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #999;
+}

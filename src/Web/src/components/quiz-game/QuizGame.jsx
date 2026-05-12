@@ -17,19 +17,24 @@ const MOCK_QUOTES = [
 
 const ALL_AUTHORS = ["Oscar Wilde", "Sir Winston Churchill", "James Baldwin", "Hector Berlioz"];
 
-const QuizGame = () => {
+const QuizGame = ({ mode = 'binary' }) => {
   const [page, setPage] = useState('main'); // 'main' or 'settings' [cite: 11]
-  const [mode, setMode] = useState('binary'); // 'binary' or 'multiple' [cite: 15, 16]
   const [currentIndex, setCurrentIndex] = useState(0);
   const [userAnswered, setUserAnswered] = useState(false);
   const [feedback, setFeedback] = useState('');
   const [options, setOptions] = useState([]);
+  const [localMode, setLocalMode] = useState(mode);
 
   const currentQuote = MOCK_QUOTES[currentIndex];
+  const effectiveMode = mode || localMode;
+
+  useEffect(() => {
+    setLocalMode(mode);
+  }, [mode]);
 
   // Initialize options for Multiple Choice
   useEffect(() => {
-    if (mode === 'multiple') {
+    if (effectiveMode === 'multiple') {
       const others = ALL_AUTHORS.filter(a => a !== currentQuote.author);
       const shuffled = [currentQuote.author, ...others.slice(0, 2)].sort(() => Math.random() - 0.5);
       setOptions(shuffled);
@@ -38,7 +43,7 @@ const QuizGame = () => {
       const randomAuthor = ALL_AUTHORS[Math.floor(Math.random() * ALL_AUTHORS.length)];
       setOptions([randomAuthor]);
     }
-  }, [currentIndex, mode, currentQuote.author]);
+  }, [currentIndex, effectiveMode, currentQuote.author]);
 
   const handleAnswer = (selectedAuthor) => {
     const isCorrect = selectedAuthor === 'No' ? options[0] !== currentQuote.author : selectedAuthor === currentQuote.author;
@@ -61,10 +66,10 @@ const QuizGame = () => {
 
   return (
     <div className="app-container">
-      <nav className="nav-tabs">
+      {/* <nav className="nav-tabs">
         <button className={page === 'main' ? 'active' : ''} onClick={() => setPage('main')}>Quiz</button>
         <button className={page === 'settings' ? 'active' : ''} onClick={() => setPage('settings')}>Settings</button>
-      </nav>
+      </nav> */}
 
       {page === 'settings' ? (
         <div className="settings-page">
@@ -73,8 +78,8 @@ const QuizGame = () => {
             <input 
               type="radio" 
               value="binary" 
-              checked={mode === 'binary'} 
-              onChange={() => setMode('binary')} 
+              checked={effectiveMode === 'binary'} 
+              onChange={() => setLocalMode('binary')} 
             /> Binary (Yes/No)
           </label>
           <br />
@@ -82,8 +87,8 @@ const QuizGame = () => {
             <input 
               type="radio" 
               value="multiple" 
-              checked={mode === 'multiple'} 
-              onChange={() => setMode('multiple')} 
+              checked={effectiveMode === 'multiple'} 
+              onChange={() => setLocalMode('multiple')} 
             /> Multiple Choice
           </label>
         </div>
@@ -96,7 +101,7 @@ const QuizGame = () => {
 
           {!userAnswered ? (
             <div className="answer-section">
-              {mode === 'binary' ? (
+              {effectiveMode === 'binary' ? (
                 <div className="binary-mode">
                   <p className="question-author">{options[0]}?</p>
                   <div className="btn-group">
