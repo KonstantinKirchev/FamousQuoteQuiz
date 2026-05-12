@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\src\Core\FamousQuoteQuiz.Application\FamousQuoteQuiz.Application.csproj" />
+    <ProjectReference Include="..\..\Core\FamousQuoteQuiz.Application\FamousQuoteQuiz.Application.csproj" />
   </ItemGroup>
 
 </Project>
