@@ -10,6 +10,6 @@ public class User : BaseEntity
     public required string Lastname { get; set; }
     public required string Username { get; set; }
     public bool IsActive { get; set; } = true;
-    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+    public bool IsDeleted { get; set; } = false;
     public ICollection<UserGameAchievement> Achievements { get; set; } = new List<UserGameAchievement>();
 }

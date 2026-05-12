@@ -4,7 +4,6 @@ namespace FamousQuoteQuiz.Domain.Entities;
 
 public class UserGameAchievement : BaseEntity
 {
-    public int Id { get; set; }
     public string SelectedAnswer { get; set; } = string.Empty;
     public bool IsCorrect { get; set; }
     public string GameMode { get; set; } = string.Empty;

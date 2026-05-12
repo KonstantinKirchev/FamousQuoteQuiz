@@ -1,9 +1,13 @@
+using FamousQuoteQuiz.Application;
 using FamousQuoteQuiz.Persistence;
+using FamousQuoteQuiz.Identity;
 using Microsoft.AspNetCore.Authentication.Negotiate;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddApplicationServices();
 builder.Services.AddPersistenceServices(builder.Configuration);
+builder.Services.AddIdentityServices(builder.Configuration);
 
 // Add services to the container.
 
@@ -40,6 +44,7 @@ app.UseHttpsRedirection();
 
 app.UseCors("all");
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

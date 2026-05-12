@@ -28,14 +28,6 @@ public class UsersController : ControllerBase
         return Ok(users);
     }
 
-    // GET api/<UsersController>/5
-    //[HttpGet("{id}")]
-    //public async Task<ActionResult<QuoteDetailsDto>> Get(int id)
-    //{
-    //    var quote = await _mediator.Send(new GetQuoteDetailQuery { Id = id });
-    //    return Ok(quote);
-    //}
-
     // POST api/<UsersController>
     [HttpPost]
     [ProducesResponseType(201)]
@@ -58,19 +50,6 @@ public class UsersController : ControllerBase
         await _mediator.Send(quote);
         return NoContent();
     }
-
-    // PUT api/<UsersController>/CancelRequest/
-    //[HttpPut]
-    //[Route("CancelRequest")]
-    //[ProducesResponseType(StatusCodes.Status204NoContent)]
-    //[ProducesResponseType(400)]
-    //[ProducesResponseType(StatusCodes.Status404NotFound)]
-    //[ProducesDefaultResponseType]
-    //public async Task<ActionResult> CancelRequest(CancelQuoteCommand cancelQuote)
-    //{
-    //    await _mediator.Send(cancelQuote);
-    //    return NoContent();
-    //}
 
     // DELETE api/<UsersController>/5
     [HttpDelete("{id}")]

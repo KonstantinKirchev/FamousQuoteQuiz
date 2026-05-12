@@ -6,10 +6,10 @@ namespace FamousQuoteQuiz.Application.Models.Identity;
 public class RegistrationRequest
 {
     [Required]
-    public required string FirstName { get; set; }
+    public required string Firstname { get; set; }
 
     [Required]
-    public required string LastName { get; set; }
+    public required string Lastname { get; set; }
 
     [Required]
     [EmailAddress]

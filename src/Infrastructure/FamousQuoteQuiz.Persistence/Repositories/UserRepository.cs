@@ -41,7 +41,7 @@ public class UserRepository : GenericRepository<User>, IUserRepository
 
     public async Task DeleteUserAsync(User user)
     {
-        _context.Users.Remove(user);
+        user.IsDeleted = true;
         await _context.SaveChangesAsync();
     }
 }
