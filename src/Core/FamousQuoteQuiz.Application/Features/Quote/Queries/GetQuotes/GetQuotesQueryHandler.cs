@@ -21,7 +21,7 @@ public class GetQuotesQueryHandler : IRequestHandler<GetQuotesQuery, List<QuoteD
         var quotes = new List<Domain.Entities.Quote>();
         var requests = new List<QuoteDto>();
        
-        quotes = await _quoteRepository.GetQuotesWithDetails();
+        quotes = (List<Domain.Entities.Quote>)await _quoteRepository.GetAllQuotesAsync();
         requests = _mapper.Map<List<QuoteDto>>(quotes);
        
         return requests;

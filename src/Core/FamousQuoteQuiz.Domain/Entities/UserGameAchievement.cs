@@ -1,6 +1,8 @@
-﻿namespace FamousQuoteQuiz.Domain.Entities;
+﻿using FamousQuoteQuiz.Domain.Common;
 
-public class UserGameAchievement
+namespace FamousQuoteQuiz.Domain.Entities;
+
+public class UserGameAchievement : BaseEntity
 {
     public int Id { get; set; }
     public string SelectedAnswer { get; set; } = string.Empty;

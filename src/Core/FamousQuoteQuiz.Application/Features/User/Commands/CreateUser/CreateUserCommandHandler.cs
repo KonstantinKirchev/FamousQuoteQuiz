@@ -1,7 +1,5 @@
 ﻿using AutoMapper;
-using FamousQuoteQuiz.Application.Contracts.Persistence;
 using FamousQuoteQuiz.Application.Exceptions;
-using FamousQuoteQuiz.Application.Features.Quote.Commands.CreateQuote;
 using FamousQuoteQuiz.Domain.Interfaces;
 using MediatR;
 
@@ -26,7 +24,7 @@ public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, Unit>
             throw new BadRequestException("Invalid User Request", validationResult);
 
         var user = _mapper.Map<Domain.Entities.User>(request);
-        await _repository.AddAsync(user);
+        await _repository.CreateUserAsync(user);
         await _repository.SaveChangesAsync();
         return Unit.Value;
     }

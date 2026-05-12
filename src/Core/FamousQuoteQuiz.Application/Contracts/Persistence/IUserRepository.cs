@@ -1,13 +1,14 @@
-﻿using FamousQuoteQuiz.Domain.Entities;
+﻿using FamousQuoteQuiz.Application.Contracts.Persistence;
+using FamousQuoteQuiz.Domain.Entities;
 
 namespace FamousQuoteQuiz.Domain.Interfaces;
 
-public interface IUserRepository
+public interface IUserRepository : IGenericRepository<User>
 {
-    Task<User?> GetByIdAsync(int id);
-    Task<IEnumerable<User>> GetAllAsync();
-    Task AddAsync(User user);
-    Task UpdateAsync(User user);
-    Task DeleteAsync(int id);
-    Task SaveChangesAsync();
+    Task<IReadOnlyList<User>> GetAllUsersAsync();
+    Task<User?> GetByIdAsync(string id);
+    Task CreateUserAsync(User user);
+    Task UpdateUserAsync(User user);
+    Task DisableUserAsync(User user);
+    Task DeleteUserAsync(User user);
 }

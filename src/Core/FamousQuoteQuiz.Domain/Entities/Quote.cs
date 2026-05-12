@@ -1,7 +1,9 @@
 ﻿
+using FamousQuoteQuiz.Domain.Common;
+
 namespace FamousQuoteQuiz.Domain.Entities;
 
-public class Quote
+public class Quote : BaseEntity
 {
     public int Id { get; set; }
     public string Text { get; set; }

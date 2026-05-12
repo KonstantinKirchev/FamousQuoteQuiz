@@ -2,7 +2,8 @@
 
 namespace FamousQuoteQuiz.Application.Contracts.Persistence;
 
-public interface IUserGameAchievementRepository
+public interface IUserGameAchievementRepository : IGenericRepository<UserGameAchievement>
 {
-    Task<IEnumerable<UserGameAchievement>> GetAllAsync();
+    Task<IReadOnlyList<UserGameAchievement>> GetAllAchievementsAsync();
+    Task CreateAchievementAsync(UserGameAchievement userGameAchievement);
 }

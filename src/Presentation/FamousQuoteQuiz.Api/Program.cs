@@ -1,6 +1,9 @@
+using FamousQuoteQuiz.Persistence;
 using Microsoft.AspNetCore.Authentication.Negotiate;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddPersistenceServices(builder.Configuration);
 
 // Add services to the container.
 

@@ -26,8 +26,8 @@ public class CreateQuoteCommandValidator : AbstractValidator<CreateQuoteCommand>
         _quoteRepository = quoteRepository;
     }
 
-    private Task<bool> QuoteUnique(CreateQuoteCommand command, CancellationToken token)
+    private async Task<bool> QuoteUnique(CreateQuoteCommand command, CancellationToken token)
     {
-        return _quoteRepository.IsQuoteUnique(command.Text);
+        return await _quoteRepository.IsQuoteUniqueAsync(command.Text);
     }
 }

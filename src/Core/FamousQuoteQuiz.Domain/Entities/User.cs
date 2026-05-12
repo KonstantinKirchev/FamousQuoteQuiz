@@ -1,8 +1,10 @@
-﻿namespace FamousQuoteQuiz.Domain.Entities;
+﻿using FamousQuoteQuiz.Domain.Common;
 
-public class User
+namespace FamousQuoteQuiz.Domain.Entities;
+
+public class User : BaseEntity
 {
-    public required string Id { get; set; }
+    public new required string Id { get; set; }
     public required string Email { get; set; }
     public required string Firstname { get; set; }
     public required string Lastname { get; set; }

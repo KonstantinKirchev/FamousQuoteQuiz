@@ -4,9 +4,10 @@ namespace FamousQuoteQuiz.Application.Contracts.Persistence;
 
 public interface IQuoteRepository : IGenericRepository<Quote>
 {
-    Task AddQuote(Quote quote);
-    Task<Quote> GetQuoteDetails(string id);
-    Task<List<Quote>> GetQuotesWithDetails();
-    Task<List<Quote>> GetQuotesWithDetails(string userId);
-    Task<bool> IsQuoteUnique(string text);
+    Task<IReadOnlyList<Quote>> GetAllQuotesAsync();
+    Task<Quote> GetQuoteAsync(int id);
+    Task CreateQuoteAsync(Quote quote);
+    Task UpdateQuoteAsync(Quote quote);
+    Task DeleteQuoteAsync(Quote quote);
+    Task<bool> IsQuoteUniqueAsync(string text);
 }

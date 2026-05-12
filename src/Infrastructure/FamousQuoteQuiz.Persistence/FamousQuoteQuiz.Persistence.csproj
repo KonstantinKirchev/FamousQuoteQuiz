@@ -17,7 +17,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\..\Core\FamousQuoteQuiz.Application\FamousQuoteQuiz.Application.csproj" />
 	  <ProjectReference Include="..\..\Core\FamousQuoteQuiz.Domain\FamousQuoteQuiz.Domain.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Configurations\" />
 	</ItemGroup>
 
 </Project>

@@ -17,7 +17,8 @@ public class DeleteUserCommandHandler : IRequestHandler<DeleteUserCommand, Unit>
         if (validationResult.Errors.Any())
             throw new BadRequestException("Invalid User Request", validationResult);
 
-        await _repository.DeleteAsync(request.Id);
+        var user = await _repository.GetByIdAsync(request.Id);
+        await _repository.DisableUserAsync(user);
         await _repository.SaveChangesAsync();
         return Unit.Value;
     }
