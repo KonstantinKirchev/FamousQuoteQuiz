@@ -1,0 +1,97 @@
+.app-container {
+  max-width: 400px;
+  margin: 20px auto;
+  font-family: Arial, sans-serif;
+  border: 1px solid #ccc;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+}
+
+.nav-tabs {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.nav-tabs button {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  background: #eee;
+  cursor: pointer;
+}
+
+.nav-tabs button.active {
+  background: #555;
+  color: white;
+}
+
+.quote-box {
+  background-color: #ff007f; /* Vivid Pink from wireframe [cite: 32] */
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  min-height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+}
+
+.question-author {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: space-around;
+}
+
+.btn-yes { background-color: #4caf50; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
+.btn-no { background-color: #f44336; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
+
+.btn-choice {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 10px;
+  margin-bottom: 5px;
+  background: #555;
+  color: white;
+  border: 1px solid #ddd;
+  cursor: pointer;
+}
+
+.feedback-text {
+  font-weight: bold;
+  text-align: center;
+  margin-top: 15px;
+  color: #333;
+}
+
+.actual-author {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.btn-next {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 30px;
+  cursor: pointer;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+.settings-page {
+    text-align: center;
+    color: #333;
+}

@@ -1,0 +1,103 @@
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 80px); /* Adjust based on header height */
+  background-color: #f5f5f5;
+  padding: 20px;
+}
+
+.register-card {
+  background: white;
+  width: 100%;
+  max-width: 400px;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.register-header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.register-header h2 {
+  color: #ff007f; /* Vivid Pink from Wireframe */
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.register-header p {
+  color: #666;
+  margin-top: 5px;
+}
+
+.register-form .form-group {
+  margin-bottom: 20px;
+}
+
+.register-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #333;
+}
+
+.register-form input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+
+.register-form input:focus {
+  outline: none;
+  border-color: #ff007f;
+  box-shadow: 0 0 0 2px rgba(255, 0, 127, 0.1);
+}
+
+.btn-register {
+  width: 100%;
+  padding: 12px;
+  background-color: #ff007f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-register:hover {
+  background-color: #e60073;
+}
+
+.error-message {
+  background-color: #ffebee;
+  color: #c62828;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.register-footer {
+  margin-top: 25px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.register-footer a {
+  color: #ff007f;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.register-footer a:hover {
+  text-decoration: underline;
+}

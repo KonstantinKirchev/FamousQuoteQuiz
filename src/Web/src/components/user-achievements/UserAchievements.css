@@ -1,0 +1,85 @@
+.achievements-container {
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.achievements-header {
+  border-bottom: 4px solid #ff007f; /* Vivid Pink [cite: 50] */
+  margin-bottom: 25px;
+  padding-bottom: 10px;
+}
+
+.filter-controls {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.search-input {
+  flex: 2;
+  min-width: 250px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.filter-controls select {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: white;
+}
+
+.achievements-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.achievements-table th {
+  text-align: left;
+  background: #f8f8f8;
+  padding: 15px;
+  border-bottom: 2px solid #eee;
+}
+
+.achievements-table td {
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+  vertical-align: middle;
+}
+
+.quote-cell {
+  font-style: italic;
+  color: #555;
+  max-width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Status Pills based on Part 1 feedback logic  */
+.status-pill {
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+.status-pill.correct {
+  background-color: #e8f5e9;
+  color: #2e7d32; /* Green for success [cite: 45] */
+}
+
+.status-pill.wrong {
+  background-color: #ffebee;
+  color: #c62828; /* Red for failure [cite: 46] */
+}
+
+@media (max-width: 600px) {
+  .filter-controls { flex-direction: column; }
+}

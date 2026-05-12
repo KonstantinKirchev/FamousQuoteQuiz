@@ -1,0 +1,59 @@
+.mgmt-container {
+  max-width: 900px;
+  margin: 20px auto;
+  font-family: sans-serif;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+}
+
+.mgmt-header {
+  display: block;
+  align-items: center;
+  border-bottom: 3px solid #ff007f; /* Matching Wireframe Pink */
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+.filter-bar {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.filter-bar input { flex: 1; padding: 10px; border: 1px solid #ccc; border-radius: 4px; }
+.filter-bar select { padding: 10px; border-radius: 4px; }
+
+.user-table { width: 100%; border-collapse: collapse; }
+.user-table th { background: #f4f4f4; padding: 12px; text-align: left; }
+.user-table td { padding: 12px; border-bottom: 1px solid #eee; }
+
+.row-disabled { opacity: 0.6; background-color: #fcfcfc; }
+
+/* Status Badges */
+.status-badge { padding: 4px 8px; border-radius: 12px; font-size: 0.8rem; font-weight: bold; }
+.status-badge.active { background: #e8f5e9; color: #2e7d32; }
+.status-badge.disabled { background: #ffebee; color: #c62828; }
+
+/* Buttons [cite: 50] */
+.btn-add { background: #ff007f; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
+.btn-edit { background: #2196f3; color: white; border: none; padding: 5px 10px; border-radius: 3px; margin-right: 5px; cursor: pointer; }
+.btn-disable { background: #ff9800; color: white; border: none; padding: 5px 10px; border-radius: 3px; margin-right: 5px; cursor: pointer; }
+.btn-enable { background: #4caf50; color: white; border: none; padding: 5px 10px; border-radius: 3px; margin-right: 5px; cursor: pointer; }
+.btn-delete { background: #f44336; color: white; border: none; padding: 5px 10px; border-radius: 3px; cursor: pointer; }
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal-card { background: white; padding: 25px; border-radius: 10px; width: 400px; }
+.form-group { margin-bottom: 15px; }
+.form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
+.form-group input { width: 100%; padding: 8px; box-sizing: border-box; }
+.modal-footer { display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px; }
+.btn-save { background: #ff007f; color: white; border: none; padding: 10px 15px; border-radius: 4px; cursor: pointer; }

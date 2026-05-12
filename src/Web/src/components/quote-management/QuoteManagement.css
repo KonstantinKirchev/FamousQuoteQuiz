@@ -1,0 +1,75 @@
+.management-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.mgmt-quote-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #ff007f; /* Matching pink theme */
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.controls input {
+  flex: 2;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.quote-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.quote-table th, .quote-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+  color: #333;
+}
+
+.quote-cell {
+  max-width: 300px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.btn-primary { background: #ff007f; color: white; border: none; padding: 10px 15px; cursor: pointer; border-radius: 4px; }
+.btn-edit { background: #4caf50; color: white; border: none; padding: 5px 10px; margin-right: 5px; border-radius: 3px; cursor: pointer; }
+.btn-delete { background: #f44336; color: white; border: none; padding: 5px 10px; border-radius: 3px; cursor: pointer; }
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  width: 400px;
+}
+
+.modal-content form { display: flex; flex-direction: column; gap: 10px; }
+.modal-content textarea { height: 100px; padding: 8px; }
+.modal-content input { padding: 8px; }
+.modal-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 15px; }
