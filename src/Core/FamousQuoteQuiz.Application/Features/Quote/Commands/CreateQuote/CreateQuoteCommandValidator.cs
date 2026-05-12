@@ -9,17 +9,25 @@ public class CreateQuoteCommandValidator : AbstractValidator<CreateQuoteCommand>
 
     public CreateQuoteCommandValidator(IQuoteRepository quoteRepository)
     {
-        _quoteRepository = quoteRepository;
+        RuleFor(p => p.Text)
+            .NotEmpty().WithMessage("{PropertyName} is required")
+            .NotNull()
+            .MaximumLength(70).WithMessage("{PropertyName} must be fewer than 70 characters");
 
-        RuleFor(p => p.QuoteId)
-            .GreaterThan(0)
-            .MustAsync(QuoteMustExist)
-            .WithMessage("{PropertyName} does not exist.");
+        RuleFor(p => p.Author)
+            .NotEmpty().WithMessage("{PropertyName} is required")
+            .NotNull()
+            .MaximumLength(50).WithMessage("{PropertyName} must be fewer than 50 characters");
+
+        RuleFor(q => q)
+            .MustAsync(QuoteUnique)
+            .WithMessage("Quote already exists");
+
+        _quoteRepository = quoteRepository;
     }
 
-    private async Task<bool> QuoteMustExist(int id, CancellationToken arg2)
+    private Task<bool> QuoteUnique(CreateQuoteCommand command, CancellationToken token)
     {
-        var quote = await _quoteRepository.GetByIdAsync(id);
-        return quote != null;
+        return _quoteRepository.IsQuoteUnique(command.Text);
     }
 }

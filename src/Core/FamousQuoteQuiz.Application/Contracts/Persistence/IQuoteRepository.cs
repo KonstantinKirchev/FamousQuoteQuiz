@@ -8,4 +8,5 @@ public interface IQuoteRepository : IGenericRepository<Quote>
     Task<Quote> GetQuoteDetails(string id);
     Task<List<Quote>> GetQuotesWithDetails();
     Task<List<Quote>> GetQuotesWithDetails(string userId);
+    Task<bool> IsQuoteUnique(string text);
 }

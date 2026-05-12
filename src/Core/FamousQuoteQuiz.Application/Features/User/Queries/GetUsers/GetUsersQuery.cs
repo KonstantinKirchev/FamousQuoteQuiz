@@ -1,5 +1,8 @@
-﻿namespace FamousQuoteQuiz.Application.Features.User.Queries.GetUsers;
+﻿using MediatR;
 
-public class GetUsersQuery
+namespace FamousQuoteQuiz.Application.Features.User.Queries.GetUsers;
+
+public class GetUsersQuery : IRequest<List<GetUserDto>>
 {
+    public bool IsLoggedInUser { get; set; }
 }
