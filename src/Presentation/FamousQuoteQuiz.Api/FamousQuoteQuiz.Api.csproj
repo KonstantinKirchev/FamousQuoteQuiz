@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\FamousQuoteQuiz.Identity\FamousQuoteQuiz.Identity.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\FamousQuoteQuiz.Identity\FamousQuoteQuiz.Identity.csproj" />
     <ProjectReference Include="..\..\Core\FamousQuoteQuiz.Application\FamousQuoteQuiz.Application.csproj" />
     <ProjectReference Include="..\..\Infrastructure\FamousQuoteQuiz.Persistence\FamousQuoteQuiz.Persistence.csproj" />
   </ItemGroup>
