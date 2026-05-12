@@ -8,7 +8,7 @@
     <Project Path="src/Core/FamousQuoteQuiz.Domain/FamousQuoteQuiz.Domain.csproj" />
   </Folder>
   <Folder Name="/src/Infrastructure/">
-    <Project Path="FamousQuoteQuiz.Identity/FamousQuoteQuiz.Identity.csproj" Id="f5075581-f591-499e-8545-438d801c1998" />
+    <Project Path="src/Infrastructure/FamousQuoteQuiz.Identity/FamousQuoteQuiz.Identity.csproj" />
     <Project Path="src/Infrastructure/FamousQuoteQuiz.Persistence/FamousQuoteQuiz.Persistence.csproj" />
   </Folder>
   <Folder Name="/src/Web/" />
