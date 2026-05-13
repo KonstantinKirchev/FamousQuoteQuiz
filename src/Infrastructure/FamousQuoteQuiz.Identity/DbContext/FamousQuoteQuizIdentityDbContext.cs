@@ -1,6 +1,7 @@
 ﻿using FamousQuoteQuiz.Identity.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 
 namespace FamousQuoteQuiz.Identity.DbContext
 {
@@ -15,6 +16,12 @@ namespace FamousQuoteQuiz.Identity.DbContext
         {
             base.OnModelCreating(builder);
             builder.ApplyConfigurationsFromAssembly(typeof(FamousQuoteQuizIdentityDbContext).Assembly);
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.ConfigureWarnings(warnings =>
+                        warnings.Ignore(RelationalEventId.PendingModelChangesWarning));
         }
     }
 }
