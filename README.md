@@ -7,7 +7,8 @@ The application is designed to be an interactive game where users guess the auth
 
 Core Features
 
-Part 1: Front-End Game ExperienceThe user-facing part of the application consists of two primary pages:  
+Part 1: Front-End Game Experience
+The user-facing part of the application consists of two primary pages:  
 
 Quiz Page: An interactive game interface where users are presented with famous quotes.  
 
@@ -18,7 +19,8 @@ Instant Feedback: The system provides immediate validation for answers, displayi
 Progression: Upon answering, options disappear to reveal the correct author and a "Next" button to proceed to the next quote.  
 Settings Page: Allows users to seamlessly switch between Binary and Multiple Choice modes.  
 
-Part 2: Administrative ManagementA comprehensive management suite designed for administrators to maintain the platform:  
+Part 2: Administrative Management
+A comprehensive management suite designed for administrators to maintain the platform:  
 
 User Management: Full CRUD (Create, Read, Update, Delete) capabilities for user accounts, including the ability to disable or enable users.  
 Quote Management: Dedicated interface to list, create, update, and delete quotes and their associated authors.  
@@ -34,7 +36,8 @@ Proposes a custom UI/UX design for administrative pages that aligns with the est
 Backend: ASP.NET Core Web API
 Provides a robust and scalable RESTful API to handle game logic and management features.  
 
-Data Access: Entity Framework CoreUsed for Object-Relational Mapping (ORM) to manage the database efficiently.  
+Data Access: Entity Framework Core
+Used for Object-Relational Mapping (ORM) to manage the database efficiently.  
 Database: SQL ServerA backup of the database is included in the deliverables to ensure easy environment setup.  
 
 Deliverables
