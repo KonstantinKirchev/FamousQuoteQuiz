@@ -1,21 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './QuizGame.css';
 
-// Mock Data
-const MOCK_QUOTES = [
-  {
-    id: 1,
-    text: "A dreamer is one who can only find his way by moonlight, and his punishment is that he sees the dawn before the rest of the world.",
-    author: "Oscar Wilde"
-  },
-  {
-    id: 2,
-    text: "It has been said that democracy is the worst form of government except all the others that have been tried.",
-    author: "Sir Winston Churchill"
-  }
-];
-
-const ALL_AUTHORS = ["Oscar Wilde", "Sir Winston Churchill", "James Baldwin", "Hector Berlioz"];
+// Mock Data - REMOVED, now fetching from API
 
 const QuizGame = ({ mode = 'binary' }) => {
   const [page, setPage] = useState('main'); // 'main' or 'settings' [cite: 11]
@@ -24,16 +10,37 @@ const QuizGame = ({ mode = 'binary' }) => {
   const [feedback, setFeedback] = useState('');
   const [options, setOptions] = useState([]);
   const [localMode, setLocalMode] = useState(mode);
+  const [quotes, setQuotes] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const currentQuote = MOCK_QUOTES[currentIndex];
+  const currentQuote = quotes[currentIndex] || { text: '', author: '' };
+  const ALL_AUTHORS = [...new Set(quotes.map(q => q.author))];
   const effectiveMode = mode || localMode;
 
   useEffect(() => {
     setLocalMode(mode);
   }, [mode]);
 
+  useEffect(() => {
+    fetch('https://localhost:7180/api/quotes')
+      .then(res => res.json())
+      .then(data => {
+        setQuotes(data);
+        setLoading(false);
+      })
+      .catch(err => {
+        console.error('Error fetching quotes:', err);
+        setLoading(false);
+      });
+  }, []);
+
+  useEffect(() => {
+    setCurrentIndex(0);
+  }, [quotes]);
+
   // Initialize options for Multiple Choice
   useEffect(() => {
+    if (quotes.length === 0) return;
     if (effectiveMode === 'multiple') {
       const others = ALL_AUTHORS.filter(a => a !== currentQuote.author);
       const shuffled = [currentQuote.author, ...others.slice(0, 2)].sort(() => Math.random() - 0.5);
@@ -43,7 +50,7 @@ const QuizGame = ({ mode = 'binary' }) => {
       const randomAuthor = ALL_AUTHORS[Math.floor(Math.random() * ALL_AUTHORS.length)];
       setOptions([randomAuthor]);
     }
-  }, [currentIndex, effectiveMode, currentQuote.author]);
+  }, [currentIndex, effectiveMode, currentQuote.author, quotes]);
 
   const handleAnswer = (selectedAuthor) => {
     const isCorrect = selectedAuthor === 'No' ? options[0] !== currentQuote.author : selectedAuthor === currentQuote.author;
@@ -58,14 +65,16 @@ const QuizGame = ({ mode = 'binary' }) => {
   };
 
   const nextQuote = () => {
-    setCurrentIndex((prev) => (prev + 1) % MOCK_QUOTES.length);
+    setCurrentIndex((prev) => (prev + 1) % quotes.length);
     setUserAnswered(false);
     setFeedback('');
   };
 
   return (
     <div className="app-container">
-      {page === 'settings' ? (
+      {loading ? (
+        <div>Loading quotes...</div>
+      ) : page === 'settings' ? (
         <div className="settings-page">
           <h2>Settings</h2>
           <label>

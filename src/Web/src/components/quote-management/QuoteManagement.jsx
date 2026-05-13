@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './QuoteManagement.css';
 
 const INITIAL_QUOTES = [
@@ -7,11 +8,26 @@ const INITIAL_QUOTES = [
 ];
 
 const QuoteManagement = () => {
-  const [quotes, setQuotes] = useState(INITIAL_QUOTES);
+  const navigate = useNavigate();
+  const [quotes, setQuotes] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [isFormOpen, setIsFormOpen] = useState(false);
-  const [currentQuote, setCurrentQuote] = useState({ id: null, text: '', author: '' });
+  const [currentQuote, setCurrentQuote] = useState({ text: '', author: '' });
   const [searchTerm, setSearchTerm] = useState('');
   const [sortField, setSortField] = useState('author');
+
+  useEffect(() => {
+      fetch('https://localhost:7180/api/quotes')
+        .then(res => res.json())
+        .then(data => {
+          setQuotes(data);
+          setLoading(false);
+        })
+        .catch(err => {
+          console.error('Error fetching quotes:', err);
+          setLoading(false);
+        });
+    }, []);
 
   // Filtering Logic 
   const filteredQuotes = quotes.filter(q => 
@@ -31,25 +47,45 @@ const QuoteManagement = () => {
       setQuotes(quotes.map(q => q.id === currentQuote.id ? currentQuote : q));
     } else {
       // Create new quote 
-      setQuotes([...quotes, { ...currentQuote, id: Date.now() }]);
+      fetch('https://localhost:7180/api/quotes', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(currentQuote)
+      })
+      .then(res => res.json())
+      .then(newQuote => {
+        setQuotes([...quotes, newQuote]);
+        navigate('/');
+      })
+      .catch(err => {
+        console.error('Error creating quote:', err);
+      });
     }
     closeForm();
   };
 
   const handleDelete = (id) => {
     if (window.confirm("Are you sure you want to delete this quote?")) {
-      setQuotes(quotes.filter(q => q.id !== id));
+      fetch(`https://localhost:7180/api/quotes/${id}`, {
+        method: 'DELETE'
+      })
+      .then(() => {
+        setQuotes(quotes.filter(q => q.id !== id));
+      })
+      .catch(err => {
+        console.error('Error deleting quote:', err);
+      });
     }
   };
 
-  const openForm = (quote = { id: null, text: '', author: '' }) => {
+  const openForm = (quote = { text: '', author: '' }) => {
     setCurrentQuote(quote);
     setIsFormOpen(true);
   };
 
   const closeForm = () => {
     setIsFormOpen(false);
-    setCurrentQuote({ id: null, text: '', author: '' });
+    setCurrentQuote({ text: '', author: '' });
   };
 
   return (
