@@ -1,5 +1,4 @@
-﻿using FamousQuoteQuiz.Application.Features.User.Commands.CreateUser;
-using FamousQuoteQuiz.Application.Features.User.Commands.DeleteUser;
+﻿using FamousQuoteQuiz.Application.Features.User.Commands.DeleteUser;
 using FamousQuoteQuiz.Application.Features.User.Commands.UpdateUser;
 using FamousQuoteQuiz.Application.Features.User.Queries.GetUsers;
 using MediatR;
@@ -28,16 +27,6 @@ public class UsersController : ControllerBase
         return Ok(users);
     }
 
-    // POST api/<UsersController>
-    [HttpPost]
-    [ProducesResponseType(201)]
-    [ProducesResponseType(400)]
-    [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<ActionResult> Post(CreateUserCommand quoteRequest)
-    {
-        var response = await _mediator.Send(quoteRequest);
-        return CreatedAtAction(nameof(Get), new { id = response });
-    }
 
     // PUT api/<UsersController>/5
     [HttpPut]
