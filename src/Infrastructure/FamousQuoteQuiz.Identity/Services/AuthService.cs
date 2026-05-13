@@ -61,8 +61,6 @@ public class AuthService : IAuthService
         var user = new ApplicationUser
         {
             Email = request.Email,
-            Firstname = request.Firstname,
-            Lastname = request.Lastname,
             UserName = request.UserName,
             IsActive = true,
             EmailConfirmed = true

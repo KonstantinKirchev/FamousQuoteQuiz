@@ -7,22 +7,18 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Hellang.Middleware.ProblemDetails" Version="6.5.1" />
-		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.0" />
-		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.0">
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.8" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="10.0.8">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="9.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="10.0.8" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <ProjectReference Include="..\..\Core\FamousQuoteQuiz.Application\FamousQuoteQuiz.Application.csproj" />
 	  <ProjectReference Include="..\..\Core\FamousQuoteQuiz.Domain\FamousQuoteQuiz.Domain.csproj" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="Configurations\" />
+	  <ProjectReference Include="..\FamousQuoteQuiz.Identity\FamousQuoteQuiz.Identity.csproj" />
 	</ItemGroup>
 
 </Project>

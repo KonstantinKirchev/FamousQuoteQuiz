@@ -27,8 +27,6 @@ namespace FamousQuoteQuiz.Identity.Services
             {
                 Email = user.Email,
                 Id = user.Id,
-                Firstname = user.Firstname,
-                Lastname = user.Lastname
             };
         }
 
@@ -38,9 +36,7 @@ namespace FamousQuoteQuiz.Identity.Services
             return users.Select(q => new User
             {
                 Id = q.Id,
-                Email = q.Email,
-                Firstname = q.Firstname,
-                Lastname = q.Lastname
+                Email = q.Email
             }).ToList();
         }
     }
