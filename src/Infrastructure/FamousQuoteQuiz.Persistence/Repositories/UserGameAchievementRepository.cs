@@ -19,7 +19,7 @@ public class UserGameAchievementRepository : GenericRepository<UserGameAchieveme
 
     public async Task<IReadOnlyList<UserGameAchievement>> GetAllAchievementsAsync()
     {
-        var achievements = await _context.Achievements.ToListAsync();
+        var achievements = await _context.UserGameAchievements.ToListAsync();
         return achievements;
     }
 }
