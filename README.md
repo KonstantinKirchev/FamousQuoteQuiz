@@ -44,4 +44,23 @@ Deliverables
 
 Project Solution: Complete source code for both the React frontend and ASP.NET Core backend.  
 Database Backup: SQL Server database backup for local restoration.  
-Description of the solution: This comprehensive overview of the implementation. 
+
+Description of the solution: 
+
+The React SPA application is in the src/Web folder. To run it you need to install the packages first with the command "npm install". Then you can run the SPA application with the command "npm run dev" 
+
+The Backend part is in the Core, Infrastructure and Presentation layers. To run it you need to Rebuild the solution and then run CTRL +F5.
+
+There is a backup of the DB so you can restore it.
+If you want a fresh copy of the DB there are 2 contexts that you have to run to add migration files and then to update the DB. 
+
+Follow the steps:
+1. Open the Package Manager Console
+2. Make sure that you have selected the default project to be Identity layer
+3. Run the following command to create Initial Migration: add-migration InitMigration -context FamousQuoteQuizIdentityDbContext
+4. Then update the database with the command: update-database -context FamousQuoteQuizIdentityDbContext
+5. Now select for the default project to be the Persistance layer
+6. Run the following command to create Initial Migration: add-migration InitMigration -context ApplicationDbContext
+7. Then update the database with the command: update-database -context ApplicationDbContext
+
+Now you have a fresh new copy of the Database.
