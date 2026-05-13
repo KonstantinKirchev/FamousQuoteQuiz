@@ -6,7 +6,7 @@ using MediatR;
 
 namespace FamousQuoteQuiz.Application.Features.Quote.Commands.DeleteQuote;
 
-public class DeleteQuoteCommandHandler
+public class DeleteQuoteCommandHandler : IRequestHandler<DeleteQuoteCommand, Unit>
 {
     private readonly IQuoteRepository _quoteRepository;
 
