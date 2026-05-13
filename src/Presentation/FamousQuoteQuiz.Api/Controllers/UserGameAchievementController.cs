@@ -8,7 +8,6 @@ namespace FamousQuoteQuiz.Api.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-[Authorize]
 public class UserGameAchievementController : ControllerBase
 {
     private readonly IMediator _mediator;

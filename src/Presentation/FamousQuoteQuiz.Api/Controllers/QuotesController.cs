@@ -10,7 +10,6 @@ namespace FamousQuoteQuiz.Api.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-[Authorize]
 public class QuotesController : ControllerBase
 {
     private readonly IMediator _mediator;
@@ -22,7 +21,7 @@ public class QuotesController : ControllerBase
 
     // GET: api/<QuotesController>
     [HttpGet]
-    public async Task<ActionResult<List<QuoteDto>>> Get(bool isLoggedInUser = false)
+    public async Task<ActionResult<List<QuoteDto>>> Get()
     {
         var quotes = await _mediator.Send(new GetQuotesQuery());
         return Ok(quotes);
