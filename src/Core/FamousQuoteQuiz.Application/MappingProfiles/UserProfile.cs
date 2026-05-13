@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using FamousQuoteQuiz.Application.Features.User.Commands.CreateUser;
+using FamousQuoteQuiz.Application.Features.User.Commands;
 using FamousQuoteQuiz.Application.Features.User.Queries.GetUsers;
 using FamousQuoteQuiz.Domain.Entities;
 

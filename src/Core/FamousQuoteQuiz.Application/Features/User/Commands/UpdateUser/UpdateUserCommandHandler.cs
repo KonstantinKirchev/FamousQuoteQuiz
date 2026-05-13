@@ -21,9 +21,7 @@ public class UpdateUserHandler : IRequestHandler<UpdateUserCommand, Unit>
         if (user == null) 
             throw new KeyNotFoundException($"User with ID {request.Id} not found.");
 
-        user.Firstname = request.Firstname;
-        user.Lastname = request.Lastname;
-        user.Username = request.Username;
+        user.UserName = request.UserName;
         user.Email = request.Email;
         user.IsActive = request.IsActive;
 

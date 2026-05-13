@@ -2,4 +2,4 @@
 
 namespace FamousQuoteQuiz.Application.Features.User.Commands.UpdateUser;
 
-public record UpdateUserCommand(int Id, string Firstname, string Lastname, string Username, string Email, bool IsActive) : IRequest<Unit>;
+public record UpdateUserCommand(int Id, string UserName, string Email, bool IsActive) : IRequest<Unit>;
