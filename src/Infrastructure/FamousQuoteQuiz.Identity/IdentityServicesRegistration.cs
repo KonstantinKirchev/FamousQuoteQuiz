@@ -20,7 +20,7 @@ public static class IdentityServicesRegistration
         services.Configure<JwtSettings>(configuration.GetSection("JwtSettings"));
 
         services.AddDbContext<FamousQuoteQuizIdentityDbContext>(options =>
-           options.UseSqlServer(configuration.GetConnectionString("HrDatabaseConnectionString")));
+           options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
         services.AddIdentity<ApplicationUser, IdentityRole>()
             .AddEntityFrameworkStores<FamousQuoteQuizIdentityDbContext>().AddDefaultTokenProviders();
