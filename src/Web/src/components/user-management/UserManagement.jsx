@@ -58,7 +58,6 @@ const UserManagement = () => {
     <div className="mgmt-container">
       <header className="mgmt-header">
         <h2>User Management</h2>
-        {/* <button className="btn-add" onClick={() => openModal()}>+ Create User</button> */}
       </header>
 
       {/* Sorting and Filtering UI  */}

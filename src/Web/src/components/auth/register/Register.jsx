@@ -26,11 +26,10 @@ const Register = () => {
       return;
     }
 
-    // In a real application, you would send this to your .NET Web API 
+    // TODO send Web API call to register user here
     console.log("Registering user:", formData);
     
-    // Simulate successful registration and redirect to login
-    alert("Registration successful! Please login.");
+    // After successful registration, redirect to login
     navigate('/login');
   };
 

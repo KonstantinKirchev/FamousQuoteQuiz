@@ -10,12 +10,11 @@ const Login = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    
-    // Placeholder for authentication logic
-    // In a real app, you would call your ASP.NET Core Web API here [cite: 55]
+  
+    // TODO call ASP.NET Core Web API here
     if (email === 'admin@example.com' && password === 'password') {
       console.log("Login successful");
-      navigate('/'); // Redirect to the Quiz Game main page [cite: 12]
+      navigate('/');
     } else {
       setError('Invalid email or password. Please try again.');
     }

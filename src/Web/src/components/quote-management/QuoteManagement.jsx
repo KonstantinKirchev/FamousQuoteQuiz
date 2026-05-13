@@ -38,7 +38,7 @@ const QuoteManagement = () => {
 
   const handleDelete = (id) => {
     if (window.confirm("Are you sure you want to delete this quote?")) {
-      setQuotes(quotes.filter(q => q.id !== id)); // Delete quote 
+      setQuotes(quotes.filter(q => q.id !== id));
     }
   };
 

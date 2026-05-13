@@ -6,7 +6,6 @@ const Header = () => {
   return (
     <header className="main-header">
       <nav className="navbar">
-        {/* Left Side: Core Application Pages */}
         <div className="nav-group nav-left">
           <NavLink to="/" className={({ isActive }) => isActive ? "nav-item active" : "nav-item"}>
             Quiz Game
@@ -24,8 +23,6 @@ const Header = () => {
             Users Achievements
           </NavLink>
         </div>
-
-        {/* Right Side: Auth Links */}
         <div className="nav-group nav-right">
           <NavLink to="/login" className="nav-item auth-link">
             Login

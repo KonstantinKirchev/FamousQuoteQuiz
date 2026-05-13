@@ -48,14 +48,13 @@ const QuizGame = ({ mode = 'binary' }) => {
   const handleAnswer = (selectedAuthor) => {
     const isCorrect = selectedAuthor === 'No' ? options[0] !== currentQuote.author : selectedAuthor === currentQuote.author;
     
-    // Set specific feedback strings [cite: 18, 19]
     if (isCorrect) {
       setFeedback(`Correct! The right answer is: ${currentQuote.author}`);
     } else {
       setFeedback(`Sorry, you are wrong! The right answer is: ${currentQuote.author}`);
     }
     
-    setUserAnswered(true); // Answer options disappear after click [cite: 20]
+    setUserAnswered(true);
   };
 
   const nextQuote = () => {
@@ -66,11 +65,6 @@ const QuizGame = ({ mode = 'binary' }) => {
 
   return (
     <div className="app-container">
-      {/* <nav className="nav-tabs">
-        <button className={page === 'main' ? 'active' : ''} onClick={() => setPage('main')}>Quiz</button>
-        <button className={page === 'settings' ? 'active' : ''} onClick={() => setPage('settings')}>Settings</button>
-      </nav> */}
-
       {page === 'settings' ? (
         <div className="settings-page">
           <h2>Settings</h2>
